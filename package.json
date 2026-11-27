@@ -1,6 +1,6 @@
 {
   "name": "@luixtech/ui",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "High-density React + Tailwind CSS v4 + shadcn/ui component library for Luix projects.",
   "type": "module",
   "license": "MIT",
