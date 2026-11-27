@@ -221,10 +221,10 @@ export function CrudPageLayout<TData>({
                         <DropdownMenuTrigger asChild>
                           <Button
                             type="button"
-                            variant="outline"
+                            variant="ghost"
                             size="icon"
                             disabled={isBatchUpdatingStatus}
-                            className="h-8 w-8 rounded-lg cursor-pointer"
+                            className="h-8 w-8 rounded-lg bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground active:scale-95 transition-all cursor-pointer"
                           >
                             <CheckCircleBoldDuotone
                               size={16}

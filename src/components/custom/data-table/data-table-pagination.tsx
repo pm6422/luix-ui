@@ -76,12 +76,12 @@ export function DataTablePagination<TData>({
           Page {table.state.pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1.5">
           <Button
             aria-label="Go to first page"
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="hidden h-8 w-8 lg:flex rounded-lg"
+            className="hidden h-8 w-8 lg:flex rounded-lg bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground active:scale-95 transition-all disabled:opacity-35"
             onClick={() => table.setPageIndex(0)}
             disabled={!table.getCanPreviousPage()}
           >
@@ -89,9 +89,9 @@ export function DataTablePagination<TData>({
           </Button>
           <Button
             aria-label="Go to previous page"
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="h-8 w-8 rounded-lg"
+            className="h-8 w-8 rounded-lg bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground active:scale-95 transition-all disabled:opacity-35"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
@@ -99,9 +99,9 @@ export function DataTablePagination<TData>({
           </Button>
           <Button
             aria-label="Go to next page"
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="h-8 w-8 rounded-lg"
+            className="h-8 w-8 rounded-lg bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground active:scale-95 transition-all disabled:opacity-35"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
@@ -109,9 +109,9 @@ export function DataTablePagination<TData>({
           </Button>
           <Button
             aria-label="Go to last page"
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="hidden h-8 w-8 lg:flex rounded-lg"
+            className="hidden h-8 w-8 lg:flex rounded-lg bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground active:scale-95 transition-all disabled:opacity-35"
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             disabled={!table.getCanNextPage()}
           >

@@ -387,11 +387,11 @@ export function SimpleTable<T>({
           <div className="flex items-center gap-1">
             <Button
               type="button"
-              variant="outline"
+              variant="ghost"
               size="xs"
               disabled={activePage <= 0}
               onClick={() => setPage(activePage - 1)}
-              className="h-7 w-7 p-0 rounded-lg border-border/40 bg-muted/15 shadow-none"
+              className="h-7 w-7 p-0 rounded-lg bg-muted/35 text-muted-foreground hover:bg-muted/65 hover:text-foreground active:scale-95 transition-all disabled:opacity-35"
               aria-label="Previous page"
             >
               <AltArrowLeftLinear size={14} />
@@ -401,11 +401,11 @@ export function SimpleTable<T>({
             </span>
             <Button
               type="button"
-              variant="outline"
+              variant="ghost"
               size="xs"
               disabled={activePage >= totalPages - 1}
               onClick={() => setPage(activePage + 1)}
-              className="h-7 w-7 p-0 rounded-lg border-border/40 bg-muted/15 shadow-none"
+              className="h-7 w-7 p-0 rounded-lg bg-muted/35 text-muted-foreground hover:bg-muted/65 hover:text-foreground active:scale-95 transition-all disabled:opacity-35"
               aria-label="Next page"
             >
               <AltArrowRightLinear size={14} />

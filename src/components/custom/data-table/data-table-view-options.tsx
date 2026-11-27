@@ -25,9 +25,12 @@ export function DataTableViewOptions<TData>({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="secondary"
+          variant="ghost"
           size="sm"
-          className={cn("hidden h-8 md:flex gap-1.5 text-xs font-medium cursor-pointer", className)}
+          className={cn(
+            "hidden h-8 md:flex px-2.5 gap-1.5 text-xs font-medium rounded-lg bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground active:scale-95 transition-all cursor-pointer",
+            className,
+          )}
         >
           <Tuning2BoldDuotone size={16} />
           View
