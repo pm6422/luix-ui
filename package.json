@@ -4,6 +4,10 @@
   "description": "High-density React + Tailwind CSS v4 + shadcn/ui component library for Luix projects.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pm6422/luix-ui.git"
+  },
   "sideEffects": [
     "**/*.css"
   ],
