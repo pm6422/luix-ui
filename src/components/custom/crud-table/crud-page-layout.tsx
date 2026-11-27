@@ -316,11 +316,11 @@ export function CrudPageLayout<TData>({
               <DropdownMenuTrigger asChild>
                 <Button
                   type="button"
-                  variant="outline"
+                  variant="ghost"
                   size="sm"
-                  className="h-8 text-xs font-medium gap-1.5 cursor-pointer"
+                  className="h-8 px-2.5 gap-1.5 text-xs font-medium rounded-lg bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground active:scale-95 transition-all cursor-pointer"
                 >
-                  <MenuDotsBoldDuotone size={16} />
+                  <MenuDotsBoldDuotone size={15} />
                   {moreLabel}
                 </Button>
               </DropdownMenuTrigger>
