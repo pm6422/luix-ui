@@ -10,7 +10,7 @@ import {
   AltArrowUpLinear,
   CloseCircleBold,
   MagniferLinear,
-  RestartBoldDuotone,
+  RefreshLinear,
 } from "solar-icon-set";
 
 export interface SimpleColumn<T> {
@@ -211,15 +211,19 @@ export function SimpleTable<T>({
               {onRefresh && (
                 <Button
                   type="button"
-                  variant="outline"
+                  variant="ghost"
                   size="sm"
                   onClick={onRefresh}
                   aria-label="Refresh"
-                  className="h-8 w-8 p-0 rounded-lg border-border/40 bg-muted/15 shadow-none text-muted-foreground hover:bg-muted/30 hover:text-foreground"
+                  className="group h-8 w-8 p-0 rounded-lg bg-muted/35 text-muted-foreground hover:bg-muted/65 hover:text-foreground active:scale-95 transition-all"
                 >
-                  <RestartBoldDuotone
+                  <RefreshLinear
                     size={15}
-                    className={refreshing ? "animate-spin" : ""}
+                    className={
+                      refreshing
+                        ? "animate-spin"
+                        : "transition-transform duration-300 group-hover:rotate-45"
+                    }
                   />
                 </Button>
               )}
