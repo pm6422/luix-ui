@@ -1,7 +1,10 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: {
+    index: "src/index.ts",
+    "table/index": "src/table/index.ts",
+  },
   format: ["esm"],
   dts: true,
   sourcemap: true,
@@ -15,6 +18,7 @@ export default defineConfig({
     "tailwindcss",
     "radix-ui",
     "@radix-ui/react-slot",
+    "@tanstack/react-table",
     "class-variance-authority",
     "cmdk",
     "cn",

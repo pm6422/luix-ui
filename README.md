@@ -39,6 +39,7 @@ export function App() {
 - **Dialogs**: `BaseDialog`, `FormDialog`, `FormErrors`, `ConfirmDialog`, `ConfirmPopover`
 - **Forms**: `LoadingButton`, `NumericStepperInput`, `MultiSelect`, `RequiredFormLabel`, `FormFieldInput`, `FormFieldSelect`, `FormFieldSwitch`, `FormFieldCombobox`, `FormFieldMultiSelect`
 - **Navigation & Display**: `BackButton`, `DateTimeDisplay`, `DetailCard`
+- **Data Table & CRUD (`@luixtech/ui/table`)**: `DataTable`, `CrudPageLayout`, `CrudTableToolbar`, `DataTableColumnHeader`, `DataTableFacetedFilter`, `DataTablePagination`, `DataTableRowActions`, `DataTableSortList`, `DataTableViewOptions`, `crudTableFeatures`
 - **Base Primitives (`ui/*`)**: shadcn/ui + Radix primitives (`Button`, `Dialog`, `Input`, `Select`, `Table`, `Tabs`, `Tooltip`, etc.)
 
 ## Publishing
