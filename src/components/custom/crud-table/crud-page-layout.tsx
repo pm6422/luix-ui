@@ -23,10 +23,9 @@ import {
   CheckCircleBoldDuotone,
   CloseCircleBoldDuotone,
   MenuDotsBoldDuotone,
-  RestartBoldDuotone,
+  RefreshLinear,
   TrashBin2BoldDuotone,
 } from "solar-icon-set";
-import { Loader2 } from "lucide-react";
 
 export interface CrudPageLayoutProps<TData> {
   title: string;
@@ -292,22 +291,20 @@ export function CrudPageLayout<TData>({
           {onRefresh && (
             <Button
               type="button"
-              variant="outline"
+              variant="ghost"
               size="sm"
               onClick={onRefresh}
-              className="h-8 text-xs font-medium gap-1.5 cursor-pointer"
+              className="group h-8 px-2.5 gap-1.5 text-xs font-medium rounded-lg bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground active:scale-95 transition-all cursor-pointer"
             >
-              {loading ? (
-                <Loader2
-                  size={16}
-                  className="animate-spin text-primary shrink-0"
-                />
-              ) : (
-                <RestartBoldDuotone
-                  size={16}
-                  className="text-primary shrink-0"
-                />
-              )}
+              <RefreshLinear
+                size={14}
+                className={cn(
+                  "shrink-0",
+                  loading
+                    ? "animate-spin"
+                    : "transition-transform duration-300 group-hover:rotate-45",
+                )}
+              />
               {refreshLabel}
             </Button>
           )}
