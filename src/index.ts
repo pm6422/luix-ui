@@ -51,6 +51,12 @@ export {
   default as MultiSelect,
   type Option as SelectOption,
 } from "@/components/custom/multi-select";
+export {
+  SimpleTable,
+  type SimpleColumn,
+  type SimpleTableProps,
+  type ServerPagination,
+} from "@/components/custom/simple-table";
 
 // Dialog System
 export {
