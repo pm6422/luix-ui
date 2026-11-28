@@ -16,6 +16,9 @@ jobs:
       contents: read
       id-token: write
     steps:
+      - name: Record start time
+        run: echo "START_TIME=$(date +%s)" >> "$GITHUB_ENV"
+
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -26,3 +29,47 @@ jobs:
       - run: npm run typecheck
       - run: npm run build
       - run: npm publish --provenance --access public
+
+      - name: Notify ntfy on Success
+        if: success()
+        env:
+          NTFY_URL: ${{ secrets.NTFY_URL }}
+        run: |
+          if [[ -z "$NTFY_URL" ]]; then
+            echo "NTFY_URL secret is not set; skipping ntfy notification."
+            exit 0
+          fi
+          VERSION="${GITHUB_REF_NAME#v}"
+          DURATION="$(( ($(date +%s) - START_TIME) / 60 ))m $(( ($(date +%s) - START_TIME) % 60 ))s"
+          curl -fsS \
+            -H "Title: @luixtech/ui v${VERSION} Published" \
+            -H "Priority: default" \
+            -H "Tags: package,green_circle" \
+            -H "Actions: view, View on npm, https://www.npmjs.com/package/@luixtech/ui/v/${VERSION}" \
+            --data-binary @- "$NTFY_URL" <<EOF
+          Package: @luixtech/ui@${VERSION}
+          Published to npm registry with provenance.
+          Duration: ${DURATION}
+          EOF
+
+      - name: Notify ntfy on Failure
+        if: failure()
+        env:
+          NTFY_URL: ${{ secrets.NTFY_URL }}
+        run: |
+          if [[ -z "$NTFY_URL" ]]; then
+            echo "NTFY_URL secret is not set; skipping ntfy notification."
+            exit 0
+          fi
+          VERSION="${GITHUB_REF_NAME#v}"
+          DURATION="$(( ($(date +%s) - START_TIME) / 60 ))m $(( ($(date +%s) - START_TIME) % 60 ))s"
+          curl -fsS \
+            -H "Title: @luixtech/ui Publish Failed" \
+            -H "Priority: high" \
+            -H "Tags: red_circle" \
+            -H "Actions: view, View Logs, ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --data-binary @- "$NTFY_URL" <<EOF
+          Release ${VERSION:-unknown} failed to publish to npm.
+          Duration: ${DURATION}
+          Check GitHub Actions logs for details.
+          EOF
